@@ -202,13 +202,8 @@ button {
 /*Sections*/
 .main {
     grid-area: main;
-    margin-top: 1em;
     box-sizing: border-box;
     max-width: 80vw;
-}
-
-.main section {
-    margin-top: 2em;
 }
 
 .main__section--cover-image img {
@@ -261,7 +256,7 @@ button {
     background-color: var(--accent-color);
     color: var(--accent-text-color);
     border-radius: 30px;
-    padding: 1em;
+    padding: 1em 2em;
     border: none;
 }
 
@@ -280,6 +275,10 @@ button {
 .main__section--profile--menu button {
     background-color: transparent;
     border: none;
+}
+
+.main__section--profile--menu button:first-of-type {
+    display: none;
 }
 
 a.main__section--profile--menu-active {
@@ -301,8 +300,13 @@ a.main__section--profile--menu-active::after {
 
 .main__section--profile--latest-video {
     display: flex;
-    gap: 2em;
-    margin-top: 2em;
+    gap: 1em;
+    margin-top: 4em;
+}
+
+.main__section--profile--latest-video--video-img {
+    width: 27vw;
+    height: 13vw;
 }
 
 .main__section--profile--latest-video--info {
@@ -326,6 +330,8 @@ a.main__section--profile--menu-active::after {
 .main__section--profile--latest-video--recommended-channels {
     display: flex;
     flex-direction: column;
+    margin-left: 10em;
+    gap: 1em;
 }
 
 .main__section--profile--latest-video--recommended-channels p {
@@ -359,6 +365,15 @@ a.main__section--profile--menu-active::after {
     overflow: scroll;
     overflow-y: hidden;
     overflow-x: hidden;
+}
+
+.main__section--profile-videos {
+    margin-top: 1em;
+}
+
+.main__section--profile-videos--video-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .main__section--profile-videos--container--video {
@@ -395,7 +410,7 @@ a.main__section--profile--menu-active::after {
     }
 
     .header {
-        padding: 0.2em 0.625em 0 0.625em;
+        padding: 0.5em 0.625em 0 0.625em;
     }
 
     .header__user-container {
@@ -404,13 +419,13 @@ a.main__section--profile--menu-active::after {
 
     .header__logo-container--menu-button,
     .header__search-container--search-input,
-    .header__user-container button:not(:last-child),
+    .header__user-container button,
     .main__section--profile--latest-video,
     .main__section--profile-videos h2,
     .main__section--profile--info--buttons button:first-child,
     .main__section--profile--buttons,
     .main__section--profile--menu a,
-    .main__section--profile--menu button {
+    .main__section--profile--menu button:last-child {
         display: none;
     }
 
@@ -434,11 +449,42 @@ a.main__section--profile--menu-active::after {
 
     .main {
         max-width: 100vw;
-        margin: 0 1em 0 1em;
+        margin: 0;
+    }
+
+    .main__section--cover-image {
+        position: absolute;
+    }
+
+    .main__section--cover-image img {
+        height: 30vw;
+        margin-top: 1em;
+    }
+
+    .main__section--profile--info--image-subscribers {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main__section--profile--info--image-subscribers img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .main__section--profile--info--image-subscribers h2 {
+        font-size: 1.2rem;
     }
 
     .main__section--profile--info {
         flex-direction: column;
+        position: relative;
+        top: 25vw;
+        left: 5vw;
+    }
+
+    .main__section--profile--info--buttons button:last-child {
+        padding: 0.5em 1em;
     }
 
     .main__section--author--video-container {
@@ -447,15 +493,15 @@ a.main__section--profile--menu-active::after {
 
     .main__section--author--video-container--video img {
         width: 100%;
-        height: 20vh;
+        height: 150px;
     }
 
     .main__section--author--video-container--video:last-child {
         margin-bottom: 5rem;
     }
 
-    .main__section--author--video-container--video--duration {
-        top: 7rem;
+    .main__section--profile-videos--container--video--duration {
+        top: 60%;
     }
 
     .menu__sidebar {
@@ -504,10 +550,31 @@ a.main__section--profile--menu-active::after {
 
     .main__section--profile-videos--container {
         flex-direction: column;
+        margin: 0 1em;
     }
 
-    .main__section--profile--menu a:nth-of-type(-n+3) {
+    .main__section--profile-videos--container img {
+        width: 100%;
+    }
+
+    .main__section--profile-videos--container:last-child {
+        margin-bottom: 5rem;
+    }
+
+    .main__section--profile--menu {
+        margin: 6em 1em 2em 1em;
+        gap: 1em;
+        justify-content: space-between;
+    }
+
+    .main__section--profile--menu a:nth-of-type(-n+3),
+    .main__section--profile--menu button:first-of-type,
+    .header__user-container button:last-child {
         display: flex;
+    }
+
+    a.main__section--profile--menu-active::after {
+        margin-top: 1.5rem;
     }
 }
 
@@ -530,8 +597,23 @@ a.main__section--profile--menu-active::after {
         gap: 1em;
     }
 
-    .main__section--category--buttons button:first-of-type,
-    .main__section--category--container p {
+    .main__section--profile--info {
+        justify-content: flex-start;
+    }
+
+    .main__section--profile--info--buttons button:last-child {
+        padding: 0.5em;
+    }
+
+    .main__section--profile--info,
+    .main__section--profile--menu,
+    .main__section--profile-videos--video-buttons {
+        justify-content: flex-start;
+        gap: 2em;
+    }
+
+    .main__section--profile--latest-video--recommended-channels,
+    .main__section--profile--latest-video--info p {
         display: none;
     }
 }
