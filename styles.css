@@ -300,13 +300,14 @@ a.main__section--profile--menu-active::after {
 
 .main__section--profile--latest-video {
     display: flex;
-    gap: 1em;
+    align-items: center;
+    gap: 2em;
     margin-top: 4em;
 }
 
 .main__section--profile--latest-video--video-img {
     width: 27vw;
-    height: 13vw;
+    height: 50%;
 }
 
 .main__section--profile--latest-video--info {
@@ -609,7 +610,22 @@ a.main__section--profile--menu-active::after {
     .main__section--profile--menu,
     .main__section--profile-videos--video-buttons {
         justify-content: flex-start;
-        gap: 2em;
+        gap: 1em;
+    }
+
+    .main__section--profile--latest-video {
+        margin-top: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main__section--profile--latest-video--video-img {
+        width: 50%;
+        height: auto;
+    }
+
+    .main__section--profile--latest-video--info h2 {
+        margin: 0;
     }
 
     .main__section--profile--latest-video--recommended-channels,
