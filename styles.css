@@ -479,7 +479,7 @@ a.main__section--profile--menu-active::after {
     .main__section--profile--info {
         flex-direction: column;
         position: relative;
-        top: 25vw;
+        transform: translateY(40%);
         left: 5vw;
     }
 
